@@ -1,0 +1,25 @@
+
+h
+java:S1192#"FDefine a constant instead of duplicating this literal "/node" 6 times.(Éîµ˜şÿÿÿÿ8‰“íÕ¥1
+J
+java:S1604"(Make this anonymous inner class a lambda(©¥˜ùÿÿÿÿ8Š“íÕ¥1
+@
+java:S2629*"$Invoke method(s) only conditionally.(ĞÊğ~8Š“íÕ¥1
+A
+java:S2629+"$Invoke method(s) only conditionally.(€üïá8Š“íÕ¥1
+i
+java:S2095"GUse try-with-resources or close this "ZooKeeper" in a "finally" clause.(©¥˜ùÿÿÿÿ8’“íÕ¥1
+V
+java:S18545"9Remove this useless assignment to local variable "data1".(Ê¹…¾8”“íÕ¥1
+c
+java:S3457"AFormat specifiers should be used instead of string concatenation.(ö»¯ûÿÿÿÿ8™“íÕ¥1
+c
+java:S3457"AFormat specifiers should be used instead of string concatenation.(¬Äõ»øÿÿÿÿ8™“íÕ¥1
+G
+java:S1197)"*Move the array designators [] to the type.(ãÆŒ8š“íÕ¥1
+^
+java:S3457."AFormat specifiers should be used instead of string concatenation.(Üµë”8›“íÕ¥1
+G
+java:S11975"*Move the array designators [] to the type.(Ê¹…¾8›“íÕ¥1
+G
+java:S14815"*Remove this unused "data1" local variable.(Ê¹…¾8œ“íÕ¥1
