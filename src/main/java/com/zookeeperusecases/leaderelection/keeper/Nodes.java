@@ -7,6 +7,7 @@ public enum Nodes {
   INSTANCE;
 
   private String currentLeader = "";
+  private String isCurrentBoxLeader = "";
   private List<String> nodes = new ArrayList<>();
 
   public String getCurrentLeader() {
@@ -25,4 +26,11 @@ public enum Nodes {
     this.nodes.add(node);
   }
 
+  public String getIsCurrentBoxLeader() {
+    return isCurrentBoxLeader;
+  }
+
+  public void setIsCurrentBoxLeader(String isCurrentBoxLeader) {
+    this.isCurrentBoxLeader = isCurrentBoxLeader;
+  }
 }

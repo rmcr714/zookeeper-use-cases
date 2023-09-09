@@ -76,6 +76,7 @@ public class LeaderElection implements Watcher {
       zooKeeper.create(ELECTION_NAMESPACE, new byte[]{}, ZooDefs.Ids.OPEN_ACL_UNSAFE,
           CreateMode.PERSISTENT);
     String znodeFullPath = zooKeeper.create(znodePrefix, new byte[]{}, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+    System.out.println("Node data for the current host is "+znodeFullPath);
     Nodes.INSTANCE.addNode(znodeFullPath.replace(ELECTION_NAMESPACE + "/", ""));
   }
 
@@ -90,6 +91,9 @@ public class LeaderElection implements Watcher {
       Nodes.INSTANCE.setCurrentLeader(currentNode);
       if (!Nodes.INSTANCE.getNodes().contains(currentNode)) {
         Nodes.INSTANCE.addNode(currentNode);
+      } else {
+        System.out.println("Current Box is leader with path "+currentNode);
+        Nodes.INSTANCE.setIsCurrentBoxLeader(currentNode);
       }
     }
     if (Nodes.INSTANCE.getCurrentLeader() == nodes.get(0)) {
@@ -131,15 +135,18 @@ public class LeaderElection implements Watcher {
       System.out.println("Nominee " + nominee);
     }
 
-    if (StringUtils.isEmpty(Nodes.INSTANCE.getCurrentLeader())) {
+
       String currentNode = nodes.get(0)
           .replace(ELECTION_NAMESPACE + "/", "");
-      Nodes.INSTANCE.setCurrentLeader(currentNode);
-      System.out.println("Current Leader is " + Nodes.INSTANCE.getCurrentLeader());
+
+    if (Nodes.INSTANCE.getNodes().contains(currentNode)) {
+      System.out.println("Current Box is leader with path "+currentNode);
+      Nodes.INSTANCE.setIsCurrentBoxLeader(currentNode);
     }
 
     Nodes.INSTANCE.setCurrentLeader(nodes.get(0)
         .replace(ELECTION_NAMESPACE + "/", ""));
+    System.out.println("Current Leader is " + Nodes.INSTANCE.getCurrentLeader());
 
     System.out.println("Successful re-election. Elected " +
         Nodes.INSTANCE.getCurrentLeader());
